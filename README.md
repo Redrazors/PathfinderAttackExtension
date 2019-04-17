@@ -37,6 +37,8 @@ Javascript code for the popup, to store settings.
 
 <h2>Notes</h2>
 
+This is a stripped down version of an extension I used to send rolls from d20pfsrd to roll20.  There may still be some extraneous lines of code relating to roll20.
+
 At the point when the buttons are created in the content.js there will probably need to be some sort of interface with the f# PathfinderAttackSimulator library. That information would then need to be passed through to the rollAttack() parameters.
 
 
