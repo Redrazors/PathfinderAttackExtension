@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Pathfinder Attack Simulator",
+  "version": "1.0",
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["*://*.d20pfsrd.com/bestiary/monster-listings/*"],
+    "js": ["jquery-3.3.1.min.js", "content.js"],
+    "css" : ["inject.css"]
+  }],
+  "browser_action": {
+    "default_title": "Pathfinder Attack Simulator",
+	  "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "popup.html",
+    "open_in_tab": false
+  },
+  "web_accessible_resources": ["inject.js"],
+  "icons": { "84": "icon84.png"},
+  "permissions": ["storage"]
+}
