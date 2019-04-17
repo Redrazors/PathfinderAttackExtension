@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(function (msg) {
 		var outputDiv = document.createElement( 'div' );
 		document.body.insertBefore(outputDiv, document.body.firstChild);
 
-        outputDiv.setAttribute('id', 'outputDiv');
+        	outputDiv.setAttribute('id', 'outputDiv');
         
 		console.log("ADDING BUTTONS");
 
