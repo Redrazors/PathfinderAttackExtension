@@ -1,6 +1,4 @@
-document.addEventListener('settingsEvent', function(data) {
-    chrome.runtime.sendMessage(data.detail);
-});
+
 
 var npcName = document.title.replace(' – d20PFSRD','');
 
@@ -13,15 +11,8 @@ chrome.runtime.onMessage.addListener(function (msg) {
 		var outputDiv = document.createElement( 'div' );
 		document.body.insertBefore(outputDiv, document.body.firstChild);
 
-		outputDiv.setAttribute('id', 'outputDiv');
-		outputDiv.style.backgroundColor = 'white';
-		outputDiv.style.border = "#FF0000 1px solid";
-		outputDiv.style.padding = '5px';
-		outputDiv.style.overflow = 'auto';
-		outputDiv.style.margin = '5px';
-		outputDiv.style.height = '100px';
-		outputDiv.style.width = '100%';
-
+        outputDiv.setAttribute('id', 'outputDiv');
+        
 		console.log("ADDING BUTTONS");
 
 
@@ -303,4 +294,8 @@ function strip_tags( _html /*you can put each single tag per argument*/ ){
         return _html.replace( _re, '' );
     }
 }
+
+document.addEventListener('settingsEvent', function(data) {
+    chrome.runtime.sendMessage(data.detail);
+});
 

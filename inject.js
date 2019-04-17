@@ -15,7 +15,8 @@ function rollAttack(npcName, weaponName, attackModifier, numDice, diceType, dama
     var div = document.createElement( 'div' );
     var text = document.createTextNode(message);   
     div.appendChild(text);
-    outputDiv.appendChild(div);  
+
+    outputDiv.insertBefore(div, outputDiv.firstChild);
 
 }
 
