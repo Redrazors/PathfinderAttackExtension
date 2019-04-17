@@ -1,7 +1,7 @@
 # PathfinderAttackExtension
 Sample chrome extension for d20pfsrd
 
-<b>To install</b>
+<b>To install</b></br>
 Clone or download the repo</br>
 open chrome, navigate to chrome://extensions/</br>
 Check "developer mode" to on at the top right.</br>
