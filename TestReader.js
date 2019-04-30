@@ -200,7 +200,9 @@ export function createAttackFromString(str$$2) {
     }
 }
 
-/// 
+/// This is the importan function, everything above is used by this one.
+/// the input for this function has to be the complete html text of the current webpage, but i don't know how to accomplish this in js.
+/// i got everything translated by Fable so maybe you can try this out and tell me the results. 
 export function getMonsterInformation(baseString) {
     const regexFindMonsterStats = create("(?s)((?=article-content)|(?=MainContent))(.*?)((?=<div id=\"comments\" class=\"comments\">)|(?=section15)|(?=ECOLOGY)|(?=footer))");
 
