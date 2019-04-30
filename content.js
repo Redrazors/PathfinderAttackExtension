@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(function (msg) {
 		var outputDiv = document.createElement( 'div' );
 		document.body.insertBefore(outputDiv, document.body.firstChild);
 
-        outputDiv.setAttribute('id', 'outputDiv');
+        	outputDiv.setAttribute('id', 'outputDiv');
         
 		console.log("ADDING BUTTONS");
 
@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener(function (msg) {
 
 
         
-        var statblock;
+        	var statblock;
 		if (document.getElementsByClassName('statblock').length>0){
 			//console.log("found stat block");
 			statBlock = document.getElementsByClassName('statblock')[0];
