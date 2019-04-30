@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(function (msg) {
 		var outputDiv = document.createElement( 'div' );
 		document.body.insertBefore(outputDiv, document.body.firstChild);
 
-        	outputDiv.setAttribute('id', 'outputDiv');
+        outputDiv.setAttribute('id', 'outputDiv');
         
 		console.log("ADDING BUTTONS");
 
@@ -25,9 +25,16 @@ chrome.runtime.onMessage.addListener(function (msg) {
 		(document.head || document.documentElement).appendChild(s);
 
 
-		// gets the stat block
-		var statblock =document.getElementsByClassName('statblock')[0];
-		if (document.getElementsByClassName('article-content').length>0){
+        
+        var statblock;
+		if (document.getElementsByClassName('statblock').length>0){
+			//console.log("found stat block");
+			statBlock = document.getElementsByClassName('statblock')[0];
+			//console.log(document.getElementsByClassName('statblock')[0]);
+			var check = document.getElementsByClassName('statblock')[0];
+			statblock = check;
+			//console.log(statblock);
+		} else if (document.getElementsByClassName('article-content').length>0){
 			statBlock = document.getElementsByClassName('article-content')[0].children[2];
 		}
 
@@ -35,19 +42,19 @@ chrome.runtime.onMessage.addListener(function (msg) {
 		if (statblock.outerHTML.includes('<span>Melee</span>') && statblock.outerHTML.includes('<span>Init</span>')){
 			console.log(statblock.innerHTML);
 			statblock.innerHTML = fixWeirdSpan(statblock.innerHTML);
+			//statblock = statblock.firstChild;
 		}
 		
 
-		// iterate through the child nodes of statblock and then change the html to a button.
 		for (var i=0; i<statBlock.children.length; i++){
 			var childHTML = statBlock.children[i];
 			var childString = childHTML.outerHTML;
 
+			//console.log("CHILD STRING "+childString);
 			if ( (childString.includes('<b>Spd</b>') || childString.includes('<b>Speed</b>')) && (childString.includes('<b>Melee</b>') || childString.includes('<b>Ranged</b>')) ){
 				childHTML.outerHTML = getOffenseWithButtons(childString);
 			}
 		}
-
 
 
 	} 
@@ -58,6 +65,7 @@ chrome.runtime.onMessage.addListener(function (msg) {
 
 function getOffenseWithButtons(childString){
 	if (childString.includes('<b>Melee</b>')){
+        console.log("ADDING MELEE");
 		childString = getMeleeButtons(childString);
 	}
 	if (childString.includes('<b>Ranged</b>')){
